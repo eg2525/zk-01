@@ -96,10 +96,11 @@ if uploaded_file is not None:
         st.dataframe(result_df)
 
         # 結果をCSVファイルとしてダウンロード
-        csv = result_df.to_csv(index=False, encoding='cp932')
+        csv = result_df.to_csv(index=False, encoding='cp932').encode('cp932')
         st.download_button(
-            label="Download data as CSV",
+            label="Download data",
             data=csv,
-            file_name='processed_data.csv',
+            file_name='import_r4.csv',
             mime='text/csv',
         )
+        st.snow()
